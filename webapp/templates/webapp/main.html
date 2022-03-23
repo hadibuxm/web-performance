@@ -1,0 +1,137 @@
+{% extends "webapp/base.html" %}
+{% load static %}
+{% load extras %}
+{% block content %}
+<br><br>
+<section >
+    <div class="container">
+        <form class="text-center" action="" name="loginpage" method="POST">
+            {% csrf_token %}
+            <input style="height: 50px;" type="text" name="url" class="form-control" placeholder="Enter URL here"
+                aria-label="url" required>
+                <br>
+            <button name="analyse" class="btn btn-warning">ANALYSE</button>
+        </form><br>
+        <div class="text-center">
+        {% if loadingExperience %}
+            <button onclick="show_loading_experience()" name="loadingexperience" class="btn btn-outline-primary"><strong>Loading Experience</strong></button>
+        {% endif %}
+        {% if originalloadingexperience %}
+            <button name="originalloadingexperience" class="btn btn-outline-primary"><strong>Original Loading Experience</strong></button>
+        {% endif %}
+        {% if lighthouseresult %}
+        <button name="lighthouseresult" class="btn btn-outline-primary"><strong>lighthouseresult</strong></button>
+        {% endif %}
+        </div>
+        <pre>{{data | pretty_json}}</pre>
+        {% if url %}
+            Results for: <h3>{{id}}</h3>
+        {% endif %}
+        <!-- {% if yes %} -->
+        <!-- <div class="table-responsive">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Metric</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>URL</td>
+                    <td>{{id}}</td>
+                </tr>
+                {% for key, values in data.items %}
+                <tr>
+                    <th scope="row">{{loop.counter}}</th>
+                    <td>{{key}}</td>
+                    <td>{{values}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div> -->
+        <!-- {% endif %} -->
+        
+        <div class="table-responsive" id="loadingexperiencetable">
+            <h3>Loading Experience</h3>
+            <p>Metrics of end users' page loading experience.</p>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Metric</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, values in loadingExperience.items %}
+                    <tr>
+                        <td scope="row">{{loop.index}}</td>
+                        <td>{{key}}</td>
+                        <td>{{values}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        originalloadingexperience
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Metric</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, values in originalloadingexperience.items %}
+                <tr>
+                    <td scope="row">{{loop.index}}</td>
+                    <td>{{key}}</td>
+                    <td>{{values}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        lighthouseresult
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Metric</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, values in lighthouseresult.items %}
+                <tr>
+                    <td scope="row">{{loop.index}}</td>
+                    <td>{{key}}</td>
+                    <td>{{values}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+ </section>
+ <script>
+     function  show_loading_experience() {
+         document.getElementById("loadingexperiencetable").style.display = "block";
+     }
+ </script>
+ <style>
+     
+     #loadingexperiencetable{
+         display: none;
+     }
+     /* table tr th{
+         color: white;
+     }
+     table tr td{
+         color: white;
+     } */
+ </style>
+{% endblock content %}
