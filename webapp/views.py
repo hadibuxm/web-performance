@@ -13,22 +13,11 @@ def main(request):
                 data = makeconnection.fetch_metrics(url)
             except:
                 return HttpResponse("<h1>Server not respoding, try again in sometime</h1>")
-            original_data = data
+            lighthouse_data = data['lighthouseResult']['audits']['largest-contentful-paint-element']
             cleaned_data = functions.create_context(data)
-            #context = functions.create_context(data)
-            #print(data['loadingExperience']['metrics'])
-            print('loading experience keys')
-            print(data['loadingExperience'].keys())
-            print('overall_category')
-            print(data['loadingExperience']['overall_category'])
-            #print('loading experience metrics')
-            # print(data['loadingExperience']['metrics'])
-            #id = data['loadingExperience']['id']
-            #loadingExperience = data['loadingExperience']
-            #originalloadingexperience = data['originLoadingExperience']
-            #lighthouseresult = data['lighthouseResult']
-            #context = {'data': data,} #'loadingExperience': loadingExperience,
-                       #'lighthouseresult': lighthouseresult, 'originalloadingexperience': originalloadingexperience}
-            return render(request, "webapp/main.html", {'data': original_data, 'loadingExperience': cleaned_data['loadingExperience']})
+            print('SEE HERE')
+            print(list(data['lighthouseResult']['audits'].keys()))
+            #return render(request, "webapp/main.html", {'data': lighthouse_data, })
+            return render(request, "webapp/main.html", cleaned_data)
     else:
         return render(request, "webapp/main.html")

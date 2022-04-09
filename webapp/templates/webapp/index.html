@@ -33,7 +33,19 @@
                     <p class="fst-italic">
                         website Performance is most needed thing, now a days getting customers not only work on ads but better Performance of website.
                     </p>
-                    <ul>
+                    <p class="text-justify">
+                        Real-user experience data in PSI is powered by the Chrome User Experience Report (CrUX) dataset. PSI reports real users'
+                        First Contentful Paint (FCP), First Input Delay (FID), Largest Contentful Paint (LCP), and Cumulative Layout Shift (CLS)
+                        experiences over the previous 28-day collection period.
+                        
+                        In order to show user experience data for a given page, there must be sufficient data for it to be included in the CrUX
+                        dataset. A page might not have sufficient data if it has been recently published or has too few samples from real users.
+                        When this happens, PSI will fall back to origin-level granularity, which encompasses all user experiences on all pages
+                        of the website. Sometimes the origin may also have insufficient data, in which case PSI will be unable to show any
+                        real-user experience data.
+                    </p>
+                   
+                    <!-- <ul>
                         <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </li>
                         <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate
@@ -42,7 +54,7 @@
                             Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu
                             fugiat nulla pariatur.</li>
                     </ul>
-                    <a href="#" class="read-more">Read More <i class="bi bi-long-arrow-right"></i></a>
+                    <a href="#" class="read-more">Read More <i class="bi bi-long-arrow-right"></i></a> -->
                 </div>
             </div>
 
@@ -89,14 +101,55 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Services</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+                
+                <h2>Core Web Vitals</h2>
+                <img src="{%static 'assets/img/core web vitals.png' %}">
+                <p class="text-justify">Core Web Vitals are a common set of performance signals critical to all web experiences. The Core Web Vitals metrics are
+                FID, LCP, and CLS, and they may be aggregated at either the page or origin level. For aggregations with sufficient data
+                in all three metrics, the aggregation passes the Core Web Vitals assessment if the 75th percentiles of all three metrics
+                are Good. Otherwise, the aggregation does not pass the assessment. If the aggregation has insufficient data for FID,
+                then it will pass the assessment if both the 75th percentiles of LCP and CLS are Good. If either LCP or CLS have
+                insufficient data, the page or origin-level aggregation cannot be assessed.</p>
             </div>
-
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-sm">
+                    <h2>First Contentful Paint</h2>
+                    <p class="text-justify">
+                        FCP measures how long it takes the browser to render the first piece of DOM content after a user navigates to your page.
+                        Images, non-white  elements, and SVGs on your page are considered DOM content; anything inside an iframe isn't
+                        included.Your FCP score is a comparison of your page's FCP time and FCP times for real websites, based on data from the HTTP
+                        Archive.
+                    </p>
+                   
+                </div>
+                <div class="col-sm">
+                    <h2>Largest Contentful Paint</h2>
+                    <p class="text-justify">
+                        Largest Contentful Paint (LCP) is a Core Web Vitals metric and measures when the largest content element in the viewport
+                        becomes visible. It can be used to determine when the main content of the page has finished rendering on the screen.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <h2>First Input Delay</h2>
+                    <p class="text-justify">
+                        First input delay (FID) measures the time from when a user first interacts with your site (i.e. when they click a link,
+                        tap on a button, or use a custom, JavaScript-powered control) to the time when the browser is actually able to respond
+                        to that interaction.
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <h2>Cumulative Layout Shift</h2>
+                    <p class="text-justify">
+                        Cumulative Layout Shift (CLS) is a Core Web Vitals metric calculated by summing all layout shifts that aren’t caused by
+                        user interaction. CLS calculates the proportion of the viewport that was impacted by layout shifts and the movement
+                        distance of the elements that were moved.
+                    </p>
+                </div>
+            </div>
+            <!-- <div class="row gy-4"> -->
+                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box iconbox-blue">
                         <div class="icon">
                             <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -109,9 +162,9 @@
                         <h4><a href="">Lorem Ipsum</a></h4>
                         <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon-box iconbox-orange ">
                         <div class="icon">
                             <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -124,9 +177,9 @@
                         <h4><a href="">Sed Perspiciatis</a></h4>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                     <div class="icon-box iconbox-pink">
                         <div class="icon">
                             <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -139,9 +192,9 @@
                         <h4><a href="">Magni Dolores</a></h4>
                         <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box iconbox-yellow">
                         <div class="icon">
                             <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -154,9 +207,9 @@
                         <h4><a href="">Nemo Enim</a></h4>
                         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon-box iconbox-red">
                         <div class="icon">
                             <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -169,9 +222,9 @@
                         <h4><a href="">Dele Cardo</a></h4>
                         <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                     <div class="icon-box iconbox-teal">
                         <div class="icon">
                             <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +239,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
     </section><!-- End Services Section -->
@@ -234,440 +287,72 @@
     </section><!-- End Features Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Testimonials</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                risus at semper.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{%static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img"
-                                alt="">
-                            <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                legam anim culpa.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{%static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img"
-                                alt="">
-                            <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam
-                                duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{%static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img"
-                                alt="">
-                            <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat
-                                minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore
-                                labore.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{%static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img"
-                                alt="">
-                            <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
-                                culpa.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                            <img src="{%static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img"
-                                alt="">
-                            <h3>John Larson</h3>
-                            <h4>Entrepreneur</h4>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-
-        </div>
-    </section><!-- End Testimonials Section -->
-
+    
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Portfolio</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-card">Card</li>
-                        <li data-filter=".filter-web">Web</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row portfolio-container">
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="{%static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 3</h4>
-                            <p>Web</p>
-                        </div>
-                        <div class="{%static 'portfolio-links' %}">
-                            <a href="{%static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                            <p>App</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Card 2</h4>
-                            <p>Card</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 2</h4>
-                            <p>Web</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 3</h4>
-                            <p>App</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Card 1</h4>
-                            <p>Card</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Card 3</h4>
-                            <p>Card</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <img src="{%static 'assets/img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 3</h4>
-                            <p>Web</p>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Pricing</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="box">
-                        <h3>Free</h3>
-                        <h4><sup>$</sup>0<span> / month</span></h4>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li class="na">Pharetra massa</li>
-                            <li class="na">Massa ultricies mi</li>
-                        </ul>
-                        <div class="btn-wrap">
-                            <a href="#" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-                    <div class="box featured">
-                        <h3>Business</h3>
-                        <h4><sup>$</sup>19<span> / month</span></h4>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li>Pharetra massa</li>
-                            <li class="na">Massa ultricies mi</li>
-                        </ul>
-                        <div class="btn-wrap">
-                            <a href="#" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-                    <div class="box">
-                        <h3>Developer</h3>
-                        <h4><sup>$</sup>29<span> / month</span></h4>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li>Pharetra massa</li>
-                            <li>Massa ultricies mi</li>
-                        </ul>
-                        <div class="btn-wrap">
-                            <a href="#" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-                    <div class="box">
-                        <span class="advanced">Advanced</span>
-                        <h3>Ultimate</h3>
-                        <h4><sup>$</sup>49<span> / month</span></h4>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li>Pharetra massa</li>
-                            <li>Massa ultricies mi</li>
-                        </ul>
-                        <div class="btn-wrap">
-                            <a href="#" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- End Pricing Section -->
-
+    
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <h2>Read more...</h2>
+                <p style="text-align: justify;">The Core Web Vitals are three metrics: Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative
+                Layout Shift (CLS). Each metric measures a different aspect of user experience: LCP measures perceived load speed and
+                marks the point in the page load timeline when the page's main content has likely loaded; FID measures responsiveness
+                and quantifies the experience users feel when trying to first interact with the page; and CLS measures visual stability
+                and quantifies the amount of unexpected layout shift of visible page content.
+                
+                Each Core Web Vitals metric has associated thresholds, which categorize performance as either "good", "needs
+                improvement", or "poor". Additionally, to classify the overall performance of a page or site, we use the 75th percentile value of all page views
+                to that page or site. In other words, if at least 75 percent of page views to a site meet the "good" threshold, the site
+                is classified as having "good" performance for that metric. Conversely, if at least 25 percent of page views meet the
+                "poor" threshold, the site is classified as having "poor" performance. So, for example, a 75th percentile LCP of 2
+                seconds is classified as "good", while a 75th percentile LCP of 5 seconds is classified as "poor".Criteria for the Core Web Vitals metric thresholds #
+                When establishing thresholds for Core Web Vitals metrics, we first identified criteria that each threshold had to meet.
+                Below, I explain the criteria we used at Google for evaluating 2020 Core Web Vitals metric thresholds. The subsequent
+                sections will go into more detail on how these criteria were applied to select the thresholds for each metric in 2020.
+                In future years we anticipate making improvements and additions to the criteria and thresholds to further improve our
+                ability to measure great user experiences on the web.
+                
+                High-quality user experience #
+                Our primary goal is to optimize for the user and their quality of experience. Given this, we aim to ensure that pages
+                that meet the Core Web Vitals "good" thresholds deliver a high quality user experience.
+                
+                To identify a threshold associated with high-quality user experience, we look to human perception and HCI research.
+                While this research is sometimes summarized using a single fixed threshold, we find that the underlying research is
+                typically expressed as a range of values. For example, research on the amount of time users typically wait before losing
+                focus is sometimes described as 1 second, while the underlying research is actually expressed as a range, from hundreds
+                of milliseconds to multiple seconds. The fact that perception thresholds vary depending on user and context is further
+                supported by aggregated and anonymized Chrome metrics data, which shows that there is not a single amount of time users
+                wait for a web page to display content before aborting the page load. Rather, this data shows a smooth and continuous
+                distribution. For a more in depth look at human perception thresholds and relevant HCI research, see The Science Behind
+                Web Vitals.
+                
+                In cases where relevant user experience research is available for a given metric and there is reasonable consensus on
+                the range of values in the literature, we use this range as an input to guide our threshold selection process. In cases
+                where relevant user experience research is unavailable, such as for a new metric like Cumulative Layout Shift, we
+                instead evaluate real-world pages that meet different candidate thresholds for a metric, to identify a threshold that
+                results in a good user experience.
+                
+                Achievable by existing web content #
+                Additionally, to ensure that site owners can succeed in optimizing their sites to meet the "good" thresholds, we require
+                that these thresholds are achievable for existing content on the web. For example, while zero milliseconds is an ideal
+                LCP "good" threshold, resulting in instant loading experiences, a zero millisecond threshold is not practically
+                achievable in most cases, due to network and device processing latencies. Thus, zero milliseconds is not a reasonable
+                LCP "good" threshold for Core Web Vitals.
+                
+                When evaluating candidate Core Web Vitals "good" thresholds, we verify that those thresholds are achievable, based on
+                data from the Chrome User Experience Report (CrUX). To confirm that a threshold is achievable, we require that at least
+                10% of origins currently meet the "good" threshold. Additionally, to ensure that well-optimized sites are not
+                misclassified due to variability in field data, we also verify that well-optimized content consistently meets the "good"
+                threshold.
+                
+                Conversely, we establish the "poor" threshold by identifying a level of performance that only a minority of origins are
+                not currently meeting. Unless there is research available relevant to defining a "poor" threshold, by default the
+                worst-performing 10-30% of origins are classified as "poor".</p>
             </div>
 
-            <div class="faq-list">
-                <ul>
-                    <li data-aos="fade-up" data-aos="fade-up" data-aos-delay="100">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                            data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                            <p>
-                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
-                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus
-                                non.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li data-aos="fade-up" data-aos-delay="200">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc?
-                            <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
-                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
-                                turpis massa tincidunt dui.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li data-aos="fade-up" data-aos-delay="300">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit?
-                            <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum
-                                tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-                                molestie at elementum eu facilisis sed odio morbi quis
-                            </p>
-                        </div>
-                    </li>
-
-                    <li data-aos="fade-up" data-aos-delay="400">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem
-                            et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                                ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit
-                                adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius
-                            vel pharetra vel turpis nunc eget lorem dolor? <i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo
-                                integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc
-                                eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
+           
 
         </div>
     </section><!-- End Frequently Asked Questions Section -->
@@ -688,7 +373,7 @@
                     <div class="info-box mb-4">
                         <i class="bx bx-map"></i>
                         <h3>Our Address</h3>
-                        <p>A108 Adam Street, New York, NY 535022</p>
+                        <p>61 Royston Gardens, ILFORD, IG1 3SY</p>
                     </div>
                 </div>
 
@@ -696,7 +381,7 @@
                     <div class="info-box  mb-4">
                         <i class="bx bx-envelope"></i>
                         <h3>Email Us</h3>
-                        <p>contact@example.com</p>
+                        <p>Nasiraziz7863@live.co.uk</p>
                     </div>
                 </div>
 
@@ -704,13 +389,13 @@
                     <div class="info-box  mb-4">
                         <i class="bx bx-phone-call"></i>
                         <h3>Call Us</h3>
-                        <p>+1 5589 55488 55</p>
+                        <p>0047-7865238429</p>
                     </div>
                 </div>
 
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
 
                 <div class="col-lg-6 ">
                     <iframe class="mb-4 mb-lg-0"
@@ -747,7 +432,7 @@
                     </form>
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
     </section><!-- End Contact Section -->
@@ -834,4 +519,9 @@
         class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
 </main><!-- End #main -->
+<style>
+    p{
+        line-height: 30px;
+    }
+</style>
 {% endblock content %}

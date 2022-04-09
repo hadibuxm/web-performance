@@ -3,30 +3,33 @@
 {% load extras %}
 {% block content %}
 <br><br>
-<section >
+<section>
     <div class="container">
         <form class="text-center" action="" name="loginpage" method="POST">
             {% csrf_token %}
             <input style="height: 50px;" type="text" name="url" class="form-control" placeholder="Enter URL here"
                 aria-label="url" required>
-                <br>
+            <br>
             <button name="analyse" class="btn btn-warning">ANALYSE</button>
         </form><br>
         <div class="text-center">
-        {% if loadingExperience %}
-            <button onclick="show_loading_experience()" name="loadingexperience" class="btn btn-outline-primary"><strong>Loading Experience</strong></button>
-        {% endif %}
-        {% if originalloadingexperience %}
-            <button name="originalloadingexperience" class="btn btn-outline-primary"><strong>Original Loading Experience</strong></button>
-        {% endif %}
-        {% if lighthouseresult %}
-        <button name="lighthouseresult" class="btn btn-outline-primary"><strong>lighthouseresult</strong></button>
-        {% endif %}
+            {% if loadingExperience %}
+            <button onclick="show_loading_experience()" name="loadingexperience"
+                class="btn btn-outline-primary"><strong><a href="#loadingexperiencetable">Loading Experience</a></strong></button>
+            {% endif %}
+
+            {% if originLoadingExperience %}
+            <button onclick="show_originalloading_experience()" name="originalloadingexperience"
+                class="btn btn-outline-primary"><strong><a href="#originalloadingexperiencetable">Original Loading Experience</a></strong></button>
+            {% endif %}
+
+            {% if lighthouseResult %}
+            <button onclick="show_lighthouse_result()" name="lighthouseresult"
+                class="btn btn-outline-primary"><strong><a href="#lighthousetable">lighthouse Result</a></strong></button>
+            {% endif %}
         </div>
+        <!-- <pre>{{data | pretty_json}}</pre> -->
         <pre>{{data | pretty_json}}</pre>
-        {% if url %}
-            Results for: <h3>{{id}}</h3>
-        {% endif %}
         <!-- {% if yes %} -->
         <!-- <div class="table-responsive">
         <table class="table table-sm">
@@ -53,14 +56,14 @@
         </table>
         </div> -->
         <!-- {% endif %} -->
-        
+
         <div class="table-responsive" id="loadingexperiencetable">
             <h3>Loading Experience</h3>
             <p>Metrics of end users' page loading experience.</p>
             <table class="table table-sm">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <!-- <th scope="col">#</th> -->
                         <th scope="col">Metric</th>
                         <th scope="col">Value</th>
                     </tr>
@@ -68,70 +71,159 @@
                 <tbody>
                     {% for key, values in loadingExperience.items %}
                     <tr>
-                        <td scope="row">{{loop.index}}</td>
+                        <!-- <td scope="row">{{loop.index}}</td> -->
                         <td>{{key}}</td>
                         <td>{{values}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
+                <button id="loadinexperiencedetailsbutton" onclick="show_loadingexperiencedetails()" class="btn btn-primary">Show Details</button>
+                <pre id="loadingexperience_details">{{ detailed_loadingexperience | pretty_json}}</pre>
             </table>
         </div>
-        originalloadingexperience
-        <table class="table table-sm">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Metric</th>
-                    <th scope="col">Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for key, values in originalloadingexperience.items %}
-                <tr>
-                    <td scope="row">{{loop.index}}</td>
-                    <td>{{key}}</td>
-                    <td>{{values}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        lighthouseresult
-        <table class="table table-sm">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Metric</th>
-                    <th scope="col">Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for key, values in lighthouseresult.items %}
-                <tr>
-                    <td scope="row">{{loop.index}}</td>
-                    <td>{{key}}</td>
-                    <td>{{values}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+
+        <div class="table-responsive" id="originalloadingexperiencetable">
+            <h3>Origin Loading Experience</h3>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">#</th> -->
+                        <th scope="col">Metric</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, values in originLoadingExperience.items %}
+                    <tr>
+                        <!-- <td scope="row">{{loop.index}}</td> -->
+                        <td>{{key}}</td>
+                        <td>{{values}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <button id="originloadinexperiencedetailsbutton" onclick="show_originloadingexperiencedetails()" class="btn btn-primary">Show Details</button>
+                <pre id="originloadingexperience_details">{{ detailed_originloadingexperience | pretty_json}}</pre>
+            </table>
+        </div>
+
+        <div class="table-responsive" id="lighthousetable">
+            <h3>Lighthouse Result</h3>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">#</th> -->
+                        <th scope="col">Metric</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, values in lighthouseResult.items %}
+                    <tr>
+                        <td>{{key}}</td>
+                        <td>{{values}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <button id="lighthousedetailsbutton" onclick="show_lighthouse_resultdetails()"
+                    class="btn btn-primary">Show Details</button>
+                <pre id="lighthouse_details">{{ detailed_lighthouse_experience | pretty_json}}</pre>
+            </table>
+        </div>
     </div>
+
+</section>
+<script>
+    function show_loading_experience() {
+        document.getElementById("loadingexperiencetable").style.display = "block";
+    }
+
+    function show_originalloading_experience() {
+        document.getElementById("originalloadingexperiencetable").style.display = "block";
+    }
+
+    function show_lighthouse_result() {
+        document.getElementById("lighthousetable").style.display = "block";
+    }
+
+    function show_lighthouse_resultdetails(){
+        if (document.getElementById("lighthouse_details").style.display == 'none') {
+            document.getElementById("lighthouse_details").style.display = "block";
+            document.getElementById("lighthousedetailsbutton").innerHTML = "Hide Details";
+        }
+        else {
+            document.getElementById("lighthouse_details").style.display = "none";
+            document.getElementById("lighthousedetailsbutton").innerHTML = "Show Details";
+        }
+    }
+
+    function  show_loadingexperiencedetails() {
+        if(document.getElementById("loadingexperience_details").style.display ==  'none'){
+        document.getElementById("loadingexperience_details").style.display = "block";
+        document.getElementById("loadinexperiencedetailsbutton").innerHTML = "Hide Details";
+        }
+        else{
+            document.getElementById("loadingexperience_details").style.display = "none";
+            document.getElementById("loadinexperiencedetailsbutton").innerHTML = "Show Details";
+        }
+    }
+
+    function show_originloadingexperiencedetails() {
+        if (document.getElementById("originloadingexperience_details").style.display == 'none') {
+            document.getElementById("originloadingexperience_details").style.display = "block";
+            document.getElementById("originloadinexperiencedetailsbutton").innerHTML = "Hide Details";
+        }
+        else {
+            document.getElementById("originloadingexperience_details").style.display = "none";
+            document.getElementById("originloadinexperiencedetailsbutton").innerHTML = "Show Details";
+        }
+    }
+</script>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    #loadingexperience_details{
+        display: none;
+    }
+
+    #originloadingexperience_details{
+        display: none;
+    }
+
+    #lighthouse_details{
+        display: none;
+    }
+
+    h3 {
+        font-family: 'Kalam', cursive;
+        color: rgba(24, 6, 185, 0.8) !important;
+    }
+
+    #loadingexperiencetable {
+        display: none;
+    }
+
+    /* a{
+        color: white;
+    } */
+
+    #originalloadingexperiencetable {
+        display: none;
+    }
+
+    #lighthousetable {
+        display: none;
+    }
     
- </section>
- <script>
-     function  show_loading_experience() {
-         document.getElementById("loadingexperiencetable").style.display = "block";
-     }
- </script>
- <style>
-     
-     #loadingexperiencetable{
-         display: none;
-     }
-     /* table tr th{
+    button a:hover{
+        color: white;
+    }
+    /* table tr th{
          color: white;
      }
      table tr td{
          color: white;
      } */
- </style>
+</style>
 {% endblock content %}
