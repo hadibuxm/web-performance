@@ -13,7 +13,7 @@ def main(request):
                 data = makeconnection.fetch_metrics(url)
             except:
                 return HttpResponse("<h1>Server not respoding, try again in sometime</h1>")
-            lighthouse_data = data['lighthouseResult']['audits']['largest-contentful-paint-element']
+            lighthouse_data = data['lighthouseResult']['audits']['diagnostics']
             cleaned_data = functions.create_context(data)
             print('SEE HERE')
             print(list(data['lighthouseResult']['audits'].keys()))
