@@ -21,3 +21,6 @@ def main(request):
             return render(request, "webapp/main.html", cleaned_data)
     else:
         return render(request, "webapp/main.html")
+
+def readmore(request):
+    return render(request, 'webapp/readmore.html')

@@ -1,0 +1,69 @@
+{% extends "webapp/base.html" %}
+{% load static %}
+{% block content %}
+<br><br>
+<section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            
+            <h2>What is Web Performance</h2>
+            <p style="text-align: justify; line-height: 60px;">
+                Each Core Web Vitals metric has associated thresholds, which categorize performance as either "good", "needs
+                improvement", or "poor". Additionally, to classify the overall performance of a page or site, we use the 75th percentile
+                value of all page views
+                to that page or site. In other words, if at least 75 percent of page views to a site meet the "good" threshold, the site
+                is classified as having "good" performance for that metric. Conversely, if at least 25 percent of page views meet the
+                "poor" threshold, the site is classified as having "poor" performance. So, for example, a 75th percentile LCP of 2
+                seconds is classified as "good", while a 75th percentile LCP of 5 seconds is classified as "poor".Criteria for the Core
+                Web Vitals metric thresholds #
+                When establishing thresholds for Core Web Vitals metrics, we first identified criteria that each threshold had to meet.
+                Below, I explain the criteria we used at Google for evaluating 2020 Core Web Vitals metric thresholds. The subsequent
+                sections will go into more detail on how these criteria were applied to select the thresholds for each metric in 2020.
+                In future years we anticipate making improvements and additions to the criteria and thresholds to further improve our
+                ability to measure great user experiences on the web.
+                
+                High-quality user experience #
+                Our primary goal is to optimize for the user and their quality of experience. Given this, we aim to ensure that pages
+                that meet the Core Web Vitals "good" thresholds deliver a high quality user experience.
+                
+                To identify a threshold associated with high-quality user experience, we look to human perception and HCI research.
+                While this research is sometimes summarized using a single fixed threshold, we find that the underlying research is
+                typically expressed as a range of values. For example, research on the amount of time users typically wait before losing
+                focus is sometimes described as 1 second, while the underlying research is actually expressed as a range, from hundreds
+                of milliseconds to multiple seconds. The fact that perception thresholds vary depending on user and context is further
+                supported by aggregated and anonymized Chrome metrics data, which shows that there is not a single amount of time users
+                wait for a web page to display content before aborting the page load. Rather, this data shows a smooth and continuous
+                distribution. For a more in depth look at human perception thresholds and relevant HCI research, see The Science Behind
+                Web Vitals.
+                
+                In cases where relevant user experience research is available for a given metric and there is reasonable consensus on
+                the range of values in the literature, we use this range as an input to guide our threshold selection process. In cases
+                where relevant user experience research is unavailable, such as for a new metric like Cumulative Layout Shift, we
+                instead evaluate real-world pages that meet different candidate thresholds for a metric, to identify a threshold that
+                results in a good user experience.
+                
+                Achievable by existing web content #
+                Additionally, to ensure that site owners can succeed in optimizing their sites to meet the "good" thresholds, we require
+                that these thresholds are achievable for existing content on the web. For example, while zero milliseconds is an ideal
+                LCP "good" threshold, resulting in instant loading experiences, a zero millisecond threshold is not practically
+                achievable in most cases, due to network and device processing latencies. Thus, zero milliseconds is not a reasonable
+                LCP "good" threshold for Core Web Vitals.
+                
+                When evaluating candidate Core Web Vitals "good" thresholds, we verify that those thresholds are achievable, based on
+                data from the Chrome User Experience Report (CrUX). To confirm that a threshold is achievable, we require that at least
+                10% of origins currently meet the "good" threshold. Additionally, to ensure that well-optimized sites are not
+                misclassified due to variability in field data, we also verify that well-optimized content consistently meets the "good"
+                threshold.
+                
+                Conversely, we establish the "poor" threshold by identifying a level of performance that only a minority of origins are
+                not currently meeting. Unless there is research available relevant to defining a "poor" threshold, by default the
+                worst-performing 10-30% of origins are classified as "poor".
+            </p>
+        </div>
+
+
+
+    </div>
+</section>
+{% endblock content %}
